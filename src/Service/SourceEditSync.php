@@ -45,8 +45,9 @@ class SourceEditSync
         echo 'Phase 2 ...';
       $body = $this->createBody($command);
       $responseData = $this->makeRequest($client, $body, $command);
-
-      foreach ($responseData['source_edits'] as $sourceEdit) {
+        echo '<pre>$responseData : ', print_r($responseData, true) ,'</pre> - ';
+        foreach ($responseData['source_edits'] as $sourceEdit) {
+          echo '<pre>$sourceEdit : ', print_r($sourceEdit, true) ,'</pre> - ';
           $this->sourceSaver->call(
               $sourceEdit,
               $this->sourceLocale()
