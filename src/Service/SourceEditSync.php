@@ -42,12 +42,12 @@ class SourceEditSync
     {
         echo 'Phase 1 ... ';
         $client = new Client(['base_uri' => $this->url() ]);
-        echo 'Phase 2 ...';
+        // echo 'Phase 2 ...';
       $body = $this->createBody($command);
       $responseData = $this->makeRequest($client, $body, $command);
-        echo '<pre>$responseData : ', print_r($responseData, true) ,'</pre> - ';
+        // echo '<pre>$responseData : ', print_r($responseData, true) ,'</pre> - ';
         foreach ($responseData['source_edits'] as $sourceEdit) {
-          echo '<pre>$sourceEdit : ', print_r($sourceEdit, true) ,'</pre> - ';
+        //   echo '<pre>$sourceEdit : ', print_r($sourceEdit, true) ,'</pre> - ';
           $this->sourceSaver->call(
               $sourceEdit,
               $this->sourceLocale()

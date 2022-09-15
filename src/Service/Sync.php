@@ -59,10 +59,13 @@ class Sync
 
     public function call($command, $options = [ 'purge' => false, 'show_purgeable' => false ])
     {
+        echo 'Phase 2 ... ';
+
         $client = new Client(['base_uri' => $this->url()]);
         $body = $this->createBody($options['purge']);
 
         $responseData = $this->makeRequest($client, $body, $command);
+        echo '<pre>$responseData : ', print_r($responseData, true) ,'</pre> - ';
 
         # Save new key/values sent from backend
         foreach ($this->targetLocales() as $locale) {
