@@ -40,6 +40,7 @@ class SourceEditSync
 
     public function call($command)
     {
+        echo $this->url();
       $client = new Client(['base_uri' => $this->url() ]);
       $body = $this->createBody($command);
       $responseData = $this->makeRequest($client, $body, $command);
